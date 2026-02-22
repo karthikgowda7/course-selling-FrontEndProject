@@ -1,10 +1,15 @@
 import Section from "../ui/Section.jsx";
 import Card from "../ui/Card.jsx";
+import { useInView } from "../../useInView";
 
 export default function Bundles() {
+  const [ref, inView] = useInView();
   return (
     <Section id="bundles" title="Bundles — Buy Together, Save More" className="bg-zinc-950">
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
+      <div
+        ref={ref}
+        className={`mt-10 grid gap-6 md:grid-cols-3 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
         <Card headline="Greek Gladiator Bundle" sub="Workbook + Book" link = "https://wellnessbookss.gumroad.com/l/greekgladiatorbundle">
           <p>Save $8 — buy together</p>
         </Card>

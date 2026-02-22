@@ -3,12 +3,17 @@ import Card from "../ui/Card.jsx";
 import image1 from "../../assets/image1.png"
 import image2 from "../../assets/image2.png"
 import image3 from "../../assets/image3.png"
+import { useInView } from "../../useInView";
 
 export default function Products() {
+  const [ref, inView] = useInView();
   return (
     <Section id="products" title="Choose Your Starting Point" className="bg-zinc-900">
       <p className="mt-3 text-zinc-400">Instant download · Lifetime access</p>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        ref={ref}
+        className={`mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
         <Card
           headline="Book"
           sub="The Wreckage and the Man"
@@ -21,7 +26,6 @@ export default function Products() {
             back. The foundation beneath all the other work.
           </p>
         </Card>
-
 
         <Card
           badge="Most Popular"
@@ -36,7 +40,6 @@ export default function Products() {
             movement guide. Print it and do the work.
           </p>
         </Card>
-
 
         <Card
           headline="Fitness Guide"

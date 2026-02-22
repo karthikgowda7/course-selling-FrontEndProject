@@ -1,10 +1,15 @@
 import Section from "../ui/Section.jsx";
+import { useInView } from "../../useInView";
 
 export default function ForWhom() {
+  const [ref, inView] = useInView();
   return (
     <Section id="is-this-for-me" title="Who This Is For" className="bg-zinc-900">
       <p className="mt-2 text-zinc-400">This Is Not for Everyone.</p>
-      <div className="mt-8 grid gap-8 md:grid-cols-2">
+      <div
+        ref={ref}
+        className={`mt-8 grid gap-8 md:grid-cols-2 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
         <div>
           <h3 className="text-lg font-semibold">This is for you if…</h3>
           <ul className="mt-4 space-y-3 text-zinc-300">

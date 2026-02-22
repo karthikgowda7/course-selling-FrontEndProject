@@ -1,9 +1,14 @@
 import Section from "../ui/Section.jsx";
+import { useInView } from "../../useInView";
 
 export default function Guarantee() {
+  const [ref, inView] = useInView();
   return (
     <Section id="guarantee" className="bg-gray-900 text-white">
-      <div className="mx-auto max-w-4xl text-center">
+      <div
+        ref={ref}
+        className={`mx-auto max-w-4xl text-center transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
         <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-xl font-bold ring-2 ring-amber-700">
           30
         </div>

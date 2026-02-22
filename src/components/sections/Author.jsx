@@ -1,9 +1,14 @@
 import Section from "../ui/Section.jsx";
+import { useInView } from "../../useInView";
 
 export default function Author() {
+  const [ref, inView] = useInView();
   return (
     <Section id="author" title="The Author" className="bg-zinc-950">
-      <div className="mt-6 grid gap-8 md:grid-cols-3">
+      <div
+        ref={ref}
+        className={`mt-6 grid gap-8 md:grid-cols-3 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
         <div className="md:col-span-1">
           <p className="text-sm uppercase tracking-widest text-zinc-400">Evander Richard</p>
           <p className="text-zinc-300">Author of The Wreckage and the Man</p>

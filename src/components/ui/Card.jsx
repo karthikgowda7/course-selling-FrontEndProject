@@ -1,12 +1,13 @@
-export default function Card({ headline, sub, badge, imageSrc, imageAlt,link, children }) {
+export default function Card({ headline, sub, badge, imageSrc, imageAlt,link, children,className = "" }) {
   return (
-    <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+    <div className={`group relative rounded-xl border border-stone-200 bg-white p-6 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:shadow-2xl hover:border-transparent hover:ring-2 hover:ring-amber-500/70 hover:ring-offset-2 hover:ring-offset-white hover:rotate-[0.3deg] ${className}`}>
+   
       {imageSrc && (
         <div className="mb-4 overflow-hidden rounded-lg">
           <img
             src={imageSrc}
             alt={imageAlt || headline}
-            className="h-100 w-full rounded-lg object-cover"
+            className="w-full h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
       )}
@@ -24,7 +25,7 @@ export default function Card({ headline, sub, badge, imageSrc, imageAlt,link, ch
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-lg bg-amber-700 px-4 py-2 text-white hover:bg-amber-800"
+            className="inline-flex items-center rounded-lg bg-amber-700 px-4 py-2 text-white hover:bg-amber-800 transition-all duration-300 group-hover:bg-amber-800 group-hover:tracking-wide"
           >
             View Details
           </a>
