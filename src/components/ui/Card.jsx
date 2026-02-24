@@ -24,8 +24,7 @@ export default function Card({ headline, sub, badge, imageSrc, imageAlt,link, ch
           <a
             href={link}
             target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-lg bg-amber-700 px-4 py-2 text-white hover:bg-amber-800 transition-all duration-300 group-hover:bg-amber-800 group-hover:tracking-wide"
+            rel="noopener noreferrer"          className="inline-flex items-center rounded-lg bg-amber-700 px-4 py-2 text-white hover:bg-amber-600 transition-all duration-300 group-hover:bg-amber-600 group-hover:tracking-wide"
           >
             View Details
           </a>
